@@ -1,0 +1,1572 @@
+{
+	"info": {
+		"_postman_id": "94123278-d577-4f4d-9ac3-5fd0915ebc1f",
+		"name": "ostaz",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Auth",
+			"item": [
+				{
+					"name": "login",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"if(pm.response.code===200){",
+									"    pm.environment.set(\"authToken\",pm.response.json().data['token'])",
+									"}"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "email",
+									"value": "ahmed@gmail.com",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "password",
+									"type": "text"
+								},
+								{
+									"key": "device_token",
+									"value": "d9TymjYaQeK_FHEZv2DqBQ:APA91bEtsehkNaOftDgapnNZB-n8VwCHc_0t4EjYbywbUmwZVU-Gy3xNnmj6N5GkO31QylyfGImz0W1A_X0O0Dgh9YWjTQZwZ_3lG44h4X8QG3mnSLHhsX4NrfCntc9wqGlEK1_xFJy1",
+									"type": "text"
+								},
+								{
+									"key": "device_type",
+									"value": "android",
+									"description": "ios,android",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}/login",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "register",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "student 5",
+									"type": "text"
+								},
+								{
+									"key": "email",
+									"value": "student5@gmail.com",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "Password1",
+									"type": "text"
+								},
+								{
+									"key": "password_confirmation",
+									"value": "Password1",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}/register",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "logout",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "",
+									"value": "",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}/logout",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"logout"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "forget password",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "email",
+									"value": "user@gmail.com",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}/forget-password",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"forget-password"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "reser password",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "otp",
+									"value": "624472",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "password",
+									"type": "text"
+								},
+								{
+									"key": "password_confirmation",
+									"value": "password",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}/reset-password",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"reset-password"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "refresh token",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"if(pm.response.code===200){",
+									"    pm.environment.set(\"authToken\",pm.response.json().data['token'])",
+									"}"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "token",
+									"value": "22|ElMyDDAdQJ1JzvGWrFi0yos8rRBIvlLFSpYH6ZCl",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}/refresh-token",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"refresh-token"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "wishlist",
+			"item": [
+				{
+					"name": "like - dislike",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "favourite_id",
+									"value": "6",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}/like-dislike",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"like-dislike"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "list",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "{{url}}/wishlist?page=1",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"wishlist"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "method",
+			"item": [
+				{
+					"name": "create",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "online",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}/create-method",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"create-method"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "list",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "online",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}/method-list",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"method-list"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Main&Sub Categories",
+			"item": [
+				{
+					"name": "main category",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "{{url}}/specializations",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"specializations"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "sub categories of a specific main category",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "{{url}}/specializations/1",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"specializations",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Instructors of a specific sub category",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "email",
+									"value": "user@example.com",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "12345678",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}/subSpecializations/1",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"subSpecializations",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "profile",
+			"item": [
+				{
+					"name": "profile",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/profile",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"profile"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "email",
+									"value": "user@gmail.com",
+									"type": "text"
+								},
+								{
+									"key": "image",
+									"type": "file",
+									"src": "/Users/salmazidan/Documents/image/aTMLLVVZ_400x400.jpg",
+									"disabled": true
+								},
+								{
+									"key": "facebook",
+									"value": "www.facebook.com/user",
+									"type": "text",
+									"disabled": true
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}/update-profile",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"update-profile"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "change password",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "old_password",
+									"value": "Password123",
+									"type": "text"
+								},
+								{
+									"key": "new_password",
+									"value": "Password123",
+									"type": "text"
+								},
+								{
+									"key": "new_password_confirmation",
+									"value": "Password123",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}/change-password",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"change-password"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "all user location",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "",
+									"value": "",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}/all-user-location",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"all-user-location"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "set location",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "areas_id[0]",
+									"value": "5",
+									"type": "text"
+								},
+								{
+									"key": "areas_id[1]",
+									"value": "2",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}/set-location",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"set-location"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "destroy location",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "area_id",
+									"value": "5",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}/destroy-location",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"destroy-location"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Instructor",
+			"item": [
+				{
+					"name": "Upgrade user to instructor",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "X-CSRF-TOKEN",
+								"value": "csrf",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "phone",
+									"value": "01033099484",
+									"type": "text"
+								},
+								{
+									"key": "areas[1]",
+									"value": "301",
+									"type": "text"
+								},
+								{
+									"key": "areas[2]",
+									"value": "302",
+									"type": "text"
+								},
+								{
+									"key": "subspecializations[1]",
+									"value": "2",
+									"type": "text"
+								},
+								{
+									"key": "subspecializations[2]",
+									"value": "4",
+									"type": "text"
+								},
+								{
+									"key": "email",
+									"value": "Alisanad34@example.com",
+									"type": "default"
+								},
+								{
+									"key": "whatsapp",
+									"value": "2345678978",
+									"type": "text"
+								},
+								{
+									"key": "facebook",
+									"value": "https://www.osamafacebok13.com/",
+									"type": "text"
+								},
+								{
+									"key": "teaching_method[0]",
+									"value": "3",
+									"type": "text"
+								},
+								{
+									"key": "image",
+									"type": "file",
+									"src": "/Users/salmazidan/Documents/image/aTMLLVVZ_400x400.jpg",
+									"disabled": true
+								},
+								{
+									"key": "courses[0][name]",
+									"value": "awl wa7ed",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "courses[0][description]",
+									"value": "awl desc",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "courses[0][start_date]",
+									"value": "2022-9-1",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "courses[0][duration]",
+									"value": "3",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "courses[0][price]",
+									"value": "500",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "courses[0][specialization_id]",
+									"value": "1",
+									"type": "text",
+									"disabled": true
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}/upgrade",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"upgrade"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "show profile",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "instructor_id",
+									"value": "5",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}/show-profile",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"show-profile"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "pay",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "1|Oy6tegLvpIJyIVCBClqRumhnPXhNBxveCgxjjdoP",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "course id",
+									"value": "1",
+									"type": "default"
+								},
+								{
+									"key": "student id",
+									"value": "2",
+									"type": "default"
+								},
+								{
+									"key": "date",
+									"value": "1",
+									"type": "default"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/pay",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"pay"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "take attendance",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "date",
+									"value": "1/2/2033",
+									"type": "default"
+								},
+								{
+									"key": "course id",
+									"value": "2",
+									"type": "default"
+								},
+								{
+									"key": "attendance array[0][id]",
+									"value": "2",
+									"type": "default"
+								},
+								{
+									"key": "attendance array[1][id]",
+									"value": "7",
+									"type": "default",
+									"disabled": true
+								},
+								{
+									"key": "attendance array[0][status]",
+									"value": "attend",
+									"type": "default"
+								},
+								{
+									"key": "attendance array[1][status]",
+									"value": "attend",
+									"type": "default",
+									"disabled": true
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}take/attendance",
+							"host": [
+								"{{url}}take"
+							],
+							"path": [
+								"attendance"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "home page",
+			"item": [
+				{
+					"name": "home",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\" : \"hossam\",\r\n    \"message\" : \"hello\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/home",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"home"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "search",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "1|20jTr7MWRxP0rBALZLwq4rRhLwLSJ19oTAVdQxpS",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "text",
+									"value": "instructor 2",
+									"type": "text"
+								},
+								{
+									"key": "specialization",
+									"value": "13",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "area",
+									"value": "\"null\"",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "city",
+									"value": "",
+									"type": "text",
+									"disabled": true
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}/search",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"search"
+							],
+							"query": [
+								{
+									"key": "specialization",
+									"value": "swimming",
+									"disabled": true
+								},
+								{
+									"key": "text",
+									"value": "",
+									"disabled": true
+								},
+								{
+									"key": "area",
+									"value": "316",
+									"disabled": true
+								},
+								{
+									"key": "city",
+									"value": "6",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "App Setting",
+			"item": [
+				{
+					"name": "get app setting",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/app-setting",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"app-setting"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "City & Area",
+			"item": [
+				{
+					"name": "city list",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/city-list",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"city-list"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "area list based on city",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "cities_id[1]",
+									"value": "2",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}/area-list",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"area-list"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "User",
+			"item": [
+				{
+					"name": "course-subscrib",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "course_id",
+									"value": "1",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}/course-subscrib",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"course-subscrib"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "my courses",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "course_id",
+									"value": "1",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}/my-courses",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"my-courses"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Course",
+			"item": [
+				{
+					"name": "handle course request",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "notification_id",
+									"value": "2",
+									"type": "text"
+								},
+								{
+									"key": "action",
+									"value": "reject",
+									"description": "accept , reject",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}/course/handle-course-request",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"course",
+								"handle-course-request"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "list students",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/course/students/6",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"course",
+								"students",
+								"6"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "create",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "tset1",
+									"type": "text"
+								},
+								{
+									"key": "start_date",
+									"value": "2022-09-01",
+									"type": "text"
+								},
+								{
+									"key": "price",
+									"value": "500",
+									"type": "text"
+								},
+								{
+									"key": "duration",
+									"value": "2",
+									"type": "text"
+								},
+								{
+									"key": "description",
+									"value": "test desc",
+									"type": "text"
+								},
+								{
+									"key": "specialization_id",
+									"value": "1",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}/course-create",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"course-create"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "destroy",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "course_id",
+									"value": "6",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}/course-update",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"course-update"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "list",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "{{url}}/course-list",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"course-list"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "tset1",
+									"type": "text"
+								},
+								{
+									"key": "start_date",
+									"value": "2022-09-01",
+									"type": "text"
+								},
+								{
+									"key": "price",
+									"value": "500",
+									"type": "text"
+								},
+								{
+									"key": "duration",
+									"value": "2",
+									"type": "text"
+								},
+								{
+									"key": "description",
+									"value": "test desc1",
+									"type": "text"
+								},
+								{
+									"key": "specialization_id",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "course_id",
+									"value": "6",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}/course-update",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"course-update"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "{{authToken}}",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}
